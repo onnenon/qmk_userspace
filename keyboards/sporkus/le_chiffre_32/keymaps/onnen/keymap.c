@@ -17,37 +17,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include "../../rgb.c"
 
 enum combos { COMBO_ESC, COMBO_TAB, COMBO_DEL, COMBO_CAPS };
 
 enum layer_names { BASE, NUM, SYM, NAV, FN };
 
-const uint16_t PROGMEM combo_tab[]  = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_del[]  = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_caps[] = {LGUI_T(KC_A), LGUI_T(KC_QUOT), COMBO_END};
-const uint16_t PROGMEM combo_esc[]  = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_del[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_caps[] = {LGUI_T(KC_A), LGUI_T(KC_QUOT),
+                                       COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_E, KC_R, COMBO_END};
 
 combo_t key_combos[] = {
-    [COMBO_ESC]  = COMBO(combo_esc, KC_ESC),
-    [COMBO_TAB]  = COMBO(combo_tab, KC_TAB),
-    [COMBO_DEL]  = COMBO(combo_del, KC_DEL),
+    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+    [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
+    [COMBO_DEL] = COMBO(combo_del, KC_DEL),
     [COMBO_CAPS] = COMBO(combo_caps, CW_TOGG),
 };
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-    switch (index) {
-        case COMBO_CAPS:
-            return 200;
-    }
-    return 15;
+  switch (index) {
+  case COMBO_CAPS:
+    return 200;
+  }
+  return 15;
 }
 
-const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SEMICOLON);
-const key_override_t dot_key_override   = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLON);
-const key_override_t del_key_override   = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t comma_key_override =
+    ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SEMICOLON);
+const key_override_t dot_key_override =
+    ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLON);
+const key_override_t del_key_override =
+    ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
 // This globally defines all key overrides to be used
-const key_override_t *key_overrides[] = {&comma_key_override, &dot_key_override, &del_key_override};
+const key_override_t *key_overrides[] = {&comma_key_override, &dot_key_override,
+                                         &del_key_override};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
