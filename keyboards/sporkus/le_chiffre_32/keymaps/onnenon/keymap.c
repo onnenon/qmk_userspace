@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-// #include "../../rgb.c"
+#include "../../rgb.c"
 
 enum combos { COMBO_ESC, COMBO_TAB, COMBO_DEL, COMBO_CAPS };
 
