@@ -138,5 +138,7 @@ void keyboard_post_init_kb(void) {
 bool oled_task_kb(void) {
     if (!oled_task_user()) { return false; }
     oled_write_P(PSTR("Hello"), false);
+
+    return false;
 }
 #endif
