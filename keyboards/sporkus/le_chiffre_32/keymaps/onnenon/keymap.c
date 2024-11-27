@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [FN] = LAYOUT(
-    U_NA,              U_NA,              U_NA,              U_NA,              U_NA,               KC_MUTE,           U_NA,              U_NA,              U_NA,              U_NA,              U_NA,
+    U_NA,              U_NA,              U_NA,              U_NA,              U_NA,               KC_MUTE,           U_NA,              U_NA,              U_NA,              U_NA,              QK_BOOT,
     U_NA,              U_NA,              U_NA,              U_NA,              U_NA,                                  U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,
     U_NA,              U_NA,              U_NA,              U_NA,              U_NA,                                  U_NA,              U_NA,              U_NA,              U_NA,              U_NA,
                                                              U_NA,              U_NA,                                  U_NA,              U_NA
