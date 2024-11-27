@@ -117,3 +117,19 @@ bool oled_task_user(void) {
     render_logo();
     return false;
 }
+
+void board_init(void) {
+  SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
+}
+
+void keyboard_post_init_kb(void) {
+
+    #ifdef OLED_ENABLE
+    if(!is_oled_on()){
+        wait_ms(3000);
+        // oled_init(OLED_ROTATION_0);
+    }
+    #endif
+
+    keyboard_post_init_user();
+}
