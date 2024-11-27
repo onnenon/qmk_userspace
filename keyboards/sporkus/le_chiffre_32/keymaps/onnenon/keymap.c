@@ -164,10 +164,9 @@ bool oled_task_user(void) {
     oled_write_P(oled_section_break, false);
     render_mod_status(get_mods() | get_oneshot_mods());
     oled_write_P(oled_section_break, false);
-    oled_write_P(PSTR("It Works!"), false);
-    // render_keylock_status(host_keyboard_led_state());
-    // oled_write_P(oled_section_break, false);
-    // render_keylogger_status();
+    render_keylock_status(host_keyboard_led_state());
+    oled_write_P(oled_section_break, false);
+    render_keylogger_status();
 
     return false;
 }
