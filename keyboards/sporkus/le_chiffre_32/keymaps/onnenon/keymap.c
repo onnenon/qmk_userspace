@@ -113,10 +113,10 @@ static void render_logo(void) {
     oled_write_P(qmk_logo, false);
 }
 
-bool oled_task_user(void) {
-    render_logo();
-    return false;
-}
+// bool oled_task_user(void) {
+//     render_logo();
+//     return false;
+// }
 
 void board_init(void) {
   SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
@@ -133,3 +133,10 @@ void keyboard_post_init_kb(void) {
 
     keyboard_post_init_user();
 }
+
+#ifdef OLED_ENABLE
+bool oled_task_kb(void) {
+    if (!oled_task_user()) { return false; }
+    oled_write_P(PSTR("Hello"), false);
+}
+#endif
