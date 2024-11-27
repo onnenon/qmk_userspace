@@ -137,14 +137,18 @@ void keyboard_post_init_kb(void) {
 #ifdef OLED_ENABLE
 
 // Add additional layer names here if desired. Only first 5 characters will be copied to display.
-const char PROGMEM layer_base[]    = "BASE";
-const char PROGMEM layer_num_sym[] = " SYM";
-const char PROGMEM layer_nav[]     = " NAV";
+const char PROGMEM layer_base[] = "BASE";
+const char PROGMEM layer_num[] = "NUM";
+const char PROGMEM layer_sym[] = "SYM";
+const char PROGMEM layer_nav[] = "NAV";
+const char PROGMEM layer_fn[] = " FN";
 // Add layer name variables to array here. Make sure these are in order.
 const char* const PROGMEM layer_names[] = {
     layer_base,
-    layer_num_sym,
-    layer_nav
+    layer_num,
+    layer_sym,
+    layer_nav,
+    layer_fn
 };
 
 static char oled_layer_buf[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -160,9 +164,10 @@ bool oled_task_user(void) {
     oled_write_P(oled_section_break, false);
     render_mod_status(get_mods() | get_oneshot_mods());
     oled_write_P(oled_section_break, false);
-    render_keylock_status(host_keyboard_led_state());
-    oled_write_P(oled_section_break, false);
-    render_keylogger_status();
+    oled_write_P(PSTR("It Works!"), false);
+    // render_keylock_status(host_keyboard_led_state());
+    // oled_write_P(oled_section_break, false);
+    // render_keylogger_status();
 
     return false;
 }
