@@ -4,8 +4,8 @@
 // Copyright 2023 QMK Contributors <@qmk>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#include "le_chiffre_32.h"
 #include "quantum.h"
+#include "le_chiffre_32.h"
 
 #if defined(OLED_ENABLE) // Special thanks to Sickbabies for this great OLED
                          // widget!
