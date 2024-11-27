@@ -70,26 +70,8 @@
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
-/* LSE clock */
-#define STM32_LSECLK 32768
 
 // I2C config
 #define I2C_DRIVER I2CD1
 #define I2C1_SCL_PIN B6
 #define I2C1_SDA_PIN B7
-#define I2C1_SCL_PAL_MODE 1
-#define I2C1_SDA_PAL_MODE 1
-#define I2C1_TIMINGR_PRESC 0x00U
-#define I2C1_TIMINGR_SCLDEL 0x03U
-#define I2C1_TIMINGR_SDADEL 0x01U
-#define I2C1_TIMINGR_SCLH 0x03U
-#define I2C1_TIMINGR_SCLL 0x09U
-
-// configure oled driver for the 128x32 oled
-#define OLED_UPDATE_INTERVAL 66 // ~15fps
-
-// OLED_TIMEOUT is incompatible with the OLED_OFF mode
-#define OLED_TIMEOUT 0
-
-// OLED timeout reimplemented in the keyboard-specific code
-#define CUSTOM_OLED_TIMEOUT 60000
